@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "57678078125",
+    "firebase_url": "https://bookzone-4794b.firebaseio.com",
+    "project_id": "bookzone-4794b",
+    "storage_bucket": "bookzone-4794b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57678078125:android:e72b9e96b6db5837ec2624",
+        "android_client_info": {
+          "package_name": "com.iser.project313"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "57678078125-jddi9lpvgn5dt9r3jasvnkqk47i1ko9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iser.project313",
+            "certificate_hash": "6fd5d8cbffe1e6df96ec55a5aabe2182bf2d80df"
+          }
+        },
+        {
+          "client_id": "57678078125-102ohenhq6k1hvq590kck7bl0irir4r9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkb0Ztgqyactr1VtXUVD95FmRWGpEdqFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "57678078125-102ohenhq6k1hvq590kck7bl0irir4r9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
