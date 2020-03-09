@@ -2,6 +2,7 @@ package com.iser.project313.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.AdapterView
 import android.widget.TextView
@@ -11,6 +12,7 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.iser.project313.R
 import com.iser.project313.ui.user_info.CheckSessionActivity
 import kotlinx.android.synthetic.main.activity_book_listing.*
@@ -50,9 +52,49 @@ class BookListingActivity : AppCompatActivity() {
                 R.id.nav_signOut -> {
                     performSignOut()
                 }
+                R.id.nav_create_book -> {
+                    openCreateBookActivity()
+                    true
+                }
                 else -> false
             }
         }
+        //   createBook()
+
+    }
+
+    private fun openCreateBookActivity() {
+        startActivity(Intent(this, CreateBook::class.java))
+    }
+
+    private fun createBook() {
+        var firebaseDatabase: FirebaseDatabase = FirebaseDatabase.getInstance()
+        var rootRef = firebaseDatabase.reference
+        Log.i("Project313", rootRef.toString())
+        var list: ArrayList<BookInfo> = ArrayList()
+        list.add(
+            BookInfo(
+                "nothing",
+                "30",
+                R.drawable.lolita,
+                "sldkflkjdsf",
+                "dskljdslkj",
+                "jkldsfldf"
+            )
+        )
+        var hashMap: HashMap<String, ArrayList<BookInfo>> =
+            LinkedHashMap<String, ArrayList<BookInfo>>()
+        hashMap.put("availableBooks", list)
+        rootRef.child("availableBooks").push().setValue(
+            BookInfo(
+                "nothing",
+                "30",
+                R.drawable.lolita,
+                "sldkflkjdsf",
+                "dskljdslkj",
+                "jkldsfldf"
+            )
+        )
 
     }
 

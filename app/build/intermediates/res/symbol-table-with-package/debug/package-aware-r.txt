@@ -1088,6 +1088,7 @@ drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable great_gatsby
 drawable hamlet
+drawable ic_cam
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu_camera
@@ -1157,6 +1158,7 @@ id all
 id always
 id appbar_layout
 id async
+id author_container
 id auto
 id barrier
 id beginning
@@ -1165,6 +1167,7 @@ id book_rating
 id bottom
 id btn_add_to_bag
 id btn_add_to_wishList
+id btn_create
 id btn_forgot_password
 id btn_login
 id btn_register
@@ -1199,8 +1202,13 @@ id direct
 id disableHome
 id drawer_layout
 id edit_query
+id edt_author
 id edt_email
+id edt_long_description
 id edt_password
+id edt_price
+id edt_short_description
+id edt_title
 id email_parent
 id end
 id end_padder
@@ -1228,7 +1236,9 @@ id icon_only
 id ifRoom
 id image
 id imageView
+id image_container
 id img_bookIcon
+id img_book_cover
 id info
 id invisible
 id italic
@@ -1241,6 +1251,7 @@ id line1
 id line3
 id listMode
 id list_item
+id long_desc_container
 id masked
 id media_actions
 id message
@@ -1251,6 +1262,7 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id nav_controller_view_tag
+id nav_create_book
 id nav_gallery
 id nav_home
 id nav_host_fragment
@@ -1278,6 +1290,7 @@ id parent_matrix
 id password_parent
 id percent
 id pin
+id price_container
 id progress_circular
 id progress_horizontal
 id radio
@@ -1307,6 +1320,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id short_desc_container
 id shortcut
 id showCustom
 id showHome
@@ -1352,8 +1366,10 @@ id textinput_helper_text
 id time
 id title
 id titleDividerNoCustom
+id title_container
 id title_template
 id toolbar
+id toolbar2
 id top
 id topPanel
 id touch_outside
@@ -1363,6 +1379,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id tv_author
+id tv_choose_image
 id tv_long_desc
 id tv_price
 id tv_title
@@ -1429,6 +1446,7 @@ layout abc_tooltip
 layout activity_book_detail
 layout activity_book_listing
 layout activity_check_session
+layout activity_create_book
 layout activity_login
 layout activity_main
 layout activity_register
