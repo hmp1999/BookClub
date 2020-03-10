@@ -1,41 +1,65 @@
 package com.iser.project313.ui.home
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.iser.project313.R
 import kotlinx.android.synthetic.main.activity_book_detail.*
 
 class BookDetailActivity : AppCompatActivity() {
-    private lateinit var bookDetail: BookInfo
+    private var bookDetail: BookInfo? = null
+    private lateinit var bookId: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_detail)
         initData()
         initToolbar()
-        setData()
     }
 
     private fun initToolbar() {
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
-        title = bookDetail.title
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.back_white)
     }
 
     private fun initData() {
-        bookDetail = intent.getSerializableExtra("bookDetail") as BookInfo
+        bookId = intent.getStringExtra("bookDetailId")
+        getData()
+    }
+
+    private fun getData() {
+        FirebaseDatabase.getInstance().getReference("availableBooks/$bookId")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    bookDetail = dataSnapshot.getValue<BookInfo>(BookInfo::class.java)
+                    setData()
+                }
+
+            })
     }
 
     private fun setData() {
-        img_bookIcon.setImageResource(bookDetail.resourceId)
-        tv_title.text = bookDetail.title
-        tv_author.text = bookDetail.author
-        tv_long_desc.text = bookDetail.longDesc
-        tv_price.text = "$" + bookDetail.price
-        book_rating.rating = bookDetail.rating
+        val decodedString = Base64.decode(bookDetail?.albumCover, Base64.DEFAULT)
+        val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+        img_bookIcon?.setImageBitmap(decodedByte)
+        tv_title.text = bookDetail?.title
+        tv_author.text = bookDetail?.author
+        tv_long_desc.text = bookDetail?.longDesc
+        tv_price.text = "$" + bookDetail?.price
+        book_rating.rating = bookDetail?.rating ?: 0.0F
+        title = bookDetail?.title
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

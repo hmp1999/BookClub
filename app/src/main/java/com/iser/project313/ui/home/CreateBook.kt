@@ -2,8 +2,11 @@ package com.iser.project313.ui.home
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.TextUtils
+import android.util.Base64
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,11 +16,13 @@ import com.google.firebase.database.FirebaseDatabase
 import com.iser.project313.R
 import com.iser.project313.ui.user_info.LoginActivity
 import kotlinx.android.synthetic.main.activity_create_book.*
+import java.io.ByteArrayOutputStream
 
 
 class CreateBook : AppCompatActivity() {
 
     private val PICK_IMAGE = 101
+    private lateinit var chosenImageDecoded: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_book)
@@ -43,7 +48,7 @@ class CreateBook : AppCompatActivity() {
 
         val pickIntent = Intent(
             Intent.ACTION_PICK,
-            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         )
         pickIntent.type = "image/*"
 
@@ -87,6 +92,11 @@ class CreateBook : AppCompatActivity() {
         val longDescription: String? = edt_long_description?.text?.toString()
 
         if (FirebaseAuth.getInstance().currentUser != null) {
+            val firebaseDatabase: FirebaseDatabase = FirebaseDatabase.getInstance()
+            val rootRef = firebaseDatabase.reference
+            val availableBooksRef = rootRef.child("availableBooks")
+            val newNode = availableBooksRef.push()
+            val key = newNode.key
             val bookInfo = BookInfo(
                 title,
                 price,
@@ -94,11 +104,11 @@ class CreateBook : AppCompatActivity() {
                 author,
                 shortDescription,
                 longDescription,
-                FirebaseAuth.getInstance().currentUser?.email
+                FirebaseAuth.getInstance().currentUser?.email,
+                key
             )
-            val firebaseDatabase: FirebaseDatabase = FirebaseDatabase.getInstance()
-            val rootRef = firebaseDatabase.reference
-            rootRef.child("availableBooks").push().setValue(bookInfo) { databaseError, _ ->
+            bookInfo.albumCover = chosenImageDecoded
+            newNode.setValue(bookInfo) { databaseError, _ ->
                 if (databaseError == null) {
                     Snackbar.make(edt_title, "Book published successfully", Snackbar.LENGTH_LONG)
                         .show()
@@ -122,7 +132,14 @@ class CreateBook : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
-
+            val selectedImage = data.data
+            val bm = MediaStore.Images.Media.getBitmap(this.contentResolver, selectedImage)
+            val baos = ByteArrayOutputStream()
+            bm.compress(Bitmap.CompressFormat.JPEG, 100, baos) //bm is the bitmap object
+            val b = baos.toByteArray()
+            val encodedImage: String = Base64.encodeToString(b, Base64.DEFAULT)
+            chosenImageDecoded = encodedImage
+            img_book_cover?.setImageBitmap(bm)
         }
         super.onActivityResult(requestCode, resultCode, data)
     }

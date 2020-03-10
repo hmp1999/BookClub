@@ -1,6 +1,8 @@
 package com.iser.project313.ui.home
 
 import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +12,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iser.project313.R
 
+
 class BookListingAdapter(
     data: ArrayList<BookInfo>,
     private var onItemClickListener: AdapterView.OnItemClickListener
 ) : RecyclerView.Adapter<BookListingAdapter.BookListingViewHolder>() {
-    private var dataSet = data
+    private var dataSet = ArrayList<BookInfo>()
+
+    init {
+        dataSet.addAll(data)
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookListingViewHolder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_book_view, parent, false)
@@ -31,9 +38,24 @@ class BookListingAdapter(
         holder.title.text = currentBook.title
         holder.price.text = "$ " + currentBook.price
         holder.author.text = currentBook.author
-        holder.bookIcon.setImageResource(currentBook.resourceId)
+        val decodedString = Base64.decode(currentBook.albumCover, Base64.DEFAULT)
+        val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+        holder.bookIcon.setImageBitmap(decodedByte)
     }
 
+    fun addItems(items: ArrayList<BookInfo>) {
+        dataSet.addAll(items)
+        notifyDataSetChanged()
+    }
+
+    fun getDataSet(): ArrayList<BookInfo> {
+        return dataSet
+    }
+
+    fun clearData() {
+        dataSet.clear()
+        notifyDataSetChanged()
+    }
 
     class BookListingViewHolder(item: View, onItemClickListener: AdapterView.OnItemClickListener) :
         RecyclerView.ViewHolder(item) {
