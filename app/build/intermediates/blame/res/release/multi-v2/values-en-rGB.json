@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\694eb72552741de010cb4ac1b40f2155\\jetified-play-services-basement-16.1.0\\res\\values-en-rGB\\values.xml",
+                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\47fe0a0a1972934bf9b082ebe075c371\\jetified-play-services-basement-16.1.0\\res\\values-en-rGB\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\55d897655aacd7e9b99ff5299dfcf91b\\jetified-navigation-ui-2.0.0\\res\\values-en-rGB\\values-en-rGB.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,161",
-                        "endColumns": "105,116",
-                        "endOffsets": "156,273"
-                    },
-                    "to": {
-                        "startLines": "47,48",
-                        "startColumns": "4,4",
-                        "startOffsets": "5412,5518",
-                        "endColumns": "105,116",
-                        "endOffsets": "5513,5630"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\36f6043703c0ed20416a785722447c96\\jetified-play-services-base-16.0.1\\res\\values-en-rGB\\values.xml",
+                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\158c9bb8f195f2ff40188daeafd37a35\\jetified-play-services-base-16.0.1\\res\\values-en-rGB\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -69,6 +52,23 @@
                         "startOffsets": "2764,2871,3055,3182,3291,3501,3626,3772,4101,4319,4426,4609,4736,4941,5119,5212,5304",
                         "endColumns": "106,183,126,108,209,124,145,131,217,106,182,126,204,177,92,91,107",
                         "endOffsets": "2866,3050,3177,3286,3496,3621,3767,3899,4314,4421,4604,4731,4936,5114,5207,5299,5407"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\6becdd03374b44a9446e854ddeff71a8\\jetified-navigation-ui-2.0.0\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,161",
+                        "endColumns": "105,116",
+                        "endOffsets": "156,273"
+                    },
+                    "to": {
+                        "startLines": "47,48",
+                        "startColumns": "4,4",
+                        "startOffsets": "5412,5518",
+                        "endColumns": "105,116",
+                        "endOffsets": "5513,5630"
                     }
                 },
                 {

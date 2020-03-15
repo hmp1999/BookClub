@@ -1239,6 +1239,7 @@ id imageView
 id image_container
 id img_bookIcon
 id img_book_cover
+id include
 id info
 id invisible
 id italic
@@ -1254,6 +1255,7 @@ id list_item
 id long_desc_container
 id masked
 id media_actions
+id menu_delete
 id message
 id middle
 id mini
@@ -1266,6 +1268,7 @@ id nav_create_book
 id nav_gallery
 id nav_home
 id nav_host_fragment
+id nav_orders
 id nav_send
 id nav_settings
 id nav_share
@@ -1273,6 +1276,7 @@ id nav_signOut
 id nav_slideshow
 id nav_tools
 id nav_view
+id nav_your_books
 id navigation_header_container
 id never
 id none
@@ -1291,6 +1295,7 @@ id password_parent
 id percent
 id pin
 id price_container
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio
@@ -1299,6 +1304,7 @@ id right
 id right_icon
 id right_side
 id rv_book_list
+id rv_your_books
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1343,6 +1349,8 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+id swipeToRefresh
+id swipeToRefresh_list
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -1381,6 +1389,7 @@ id transition_transform
 id tv_author
 id tv_choose_image
 id tv_long_desc
+id tv_menu
 id tv_price
 id tv_title
 id tv_user_email
@@ -1449,6 +1458,7 @@ layout activity_check_session
 layout activity_create_book
 layout activity_login
 layout activity_main
+layout activity_personal_listing
 layout activity_register
 layout app_bar_main
 layout book_listing_content
@@ -1498,6 +1508,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu activity_main_drawer
+menu item_menu
 menu main
 navigation mobile_navigation
 string abc_action_bar_home_description
@@ -1582,6 +1593,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string default_web_client_id
+string delete
 string email
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
@@ -1604,6 +1616,7 @@ string menu_home
 string menu_send
 string menu_share
 string menu_slideshow
+string menu_text
 string menu_tools
 string minimum_password
 string mtrl_chip_close_icon_content_description

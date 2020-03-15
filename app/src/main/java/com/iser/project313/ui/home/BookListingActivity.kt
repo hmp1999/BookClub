@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.iser.project313.R
+import com.iser.project313.ui.orders.PersonalListingActivity
 import com.iser.project313.ui.user_info.CheckSessionActivity
 import kotlinx.android.synthetic.main.activity_book_listing.*
 import kotlinx.android.synthetic.main.book_listing_content.*
@@ -62,6 +63,10 @@ class BookListingActivity : AppCompatActivity() {
                     openCreateBookActivity()
                     true
                 }
+                R.id.nav_your_books -> {
+                    openYourListings()
+                    true
+                }
                 else -> false
             }
         }
@@ -73,6 +78,10 @@ class BookListingActivity : AppCompatActivity() {
         //   createBook()
         getDataSet()
 
+    }
+
+    private fun openYourListings() {
+        startActivity(Intent(this, PersonalListingActivity::class.java))
     }
 
     private fun openCreateBookActivity() {

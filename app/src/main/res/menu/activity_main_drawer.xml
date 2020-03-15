@@ -13,6 +13,16 @@
             android:id="@+id/nav_create_book"
             android:icon="@drawable/ic_menu_camera"
             android:title="Create Book" />
+
+        <item
+            android:id="@+id/nav_your_books"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Your Books" />
+
+        <item
+            android:id="@+id/nav_orders"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Your orders" />
         <!--        <item
                     android:id="@+id/nav_gallery"
                     android:icon="@drawable/ic_menu_gallery"

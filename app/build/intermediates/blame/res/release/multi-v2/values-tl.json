@@ -4,24 +4,7 @@
             "outputFile": "C:\\Users\\Kosht\\AndroidStudioProjects\\Project313\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-tl\\values-tl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\694eb72552741de010cb4ac1b40f2155\\jetified-play-services-basement-16.1.0\\res\\values-tl\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "204",
-                        "endOffsets": "451"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "4082",
-                        "endColumns": "204",
-                        "endOffsets": "4282"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\36f6043703c0ed20416a785722447c96\\jetified-play-services-base-16.0.1\\res\\values-tl\\values.xml",
+                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\158c9bb8f195f2ff40188daeafd37a35\\jetified-play-services-base-16.0.1\\res\\values-tl\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,20 +21,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\55d897655aacd7e9b99ff5299dfcf91b\\jetified-navigation-ui-2.0.0\\res\\values-tl\\values-tl.xml",
+                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\47fe0a0a1972934bf9b082ebe075c371\\jetified-play-services-basement-16.1.0\\res\\values-tl\\values.xml",
                     "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,169",
-                        "endColumns": "113,122",
-                        "endOffsets": "164,287"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "204",
+                        "endOffsets": "451"
                     },
                     "to": {
-                        "startLines": "47,48",
-                        "startColumns": "4,4",
-                        "startOffsets": "5717,5831",
-                        "endColumns": "113,122",
-                        "endOffsets": "5826,5949"
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "4082",
+                        "endColumns": "204",
+                        "endOffsets": "4282"
                     }
                 },
                 {
@@ -69,6 +52,23 @@
                         "startOffsets": "6038",
                         "endColumns": "100",
                         "endOffsets": "6134"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\6becdd03374b44a9446e854ddeff71a8\\jetified-navigation-ui-2.0.0\\res\\values-tl\\values-tl.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,169",
+                        "endColumns": "113,122",
+                        "endOffsets": "164,287"
+                    },
+                    "to": {
+                        "startLines": "47,48",
+                        "startColumns": "4,4",
+                        "startOffsets": "5717,5831",
+                        "endColumns": "113,122",
+                        "endOffsets": "5826,5949"
                     }
                 },
                 {
