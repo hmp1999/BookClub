@@ -3,6 +3,7 @@ package com.iser.project313.ui.orders
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -88,6 +89,7 @@ class PersonalListingActivity : AppCompatActivity() {
         popup.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.menu_delete -> {
+                    deleteBook(index)
                     true
                 }
                 else -> {
@@ -99,4 +101,12 @@ class PersonalListingActivity : AppCompatActivity() {
         popup.show()
     }
 
+    private fun deleteBook(index: Int) {
+        val key = personalListingAdapter.getDataSet()[index].bookId
+        FirebaseDatabase.getInstance().getReference("availableBooks/$key").removeValue()
+            .addOnCompleteListener {
+                Toast.makeText(this, "Book has been deleted successfully", Toast.LENGTH_LONG).show()
+                personalListingAdapter.removeItem(index)
+            }
+    }
 }

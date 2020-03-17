@@ -49,6 +49,11 @@ class BookListingAdapter(
         notifyDataSetChanged()
     }
 
+    fun removeItem(index: Int) {
+        dataSet.removeAt(index)
+        notifyItemRemoved(index)
+    }
+
     fun getDataSet(): ArrayList<BookInfo> {
         return dataSet
     }
