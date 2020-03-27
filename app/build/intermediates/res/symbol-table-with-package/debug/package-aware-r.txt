@@ -1305,6 +1305,7 @@ id right_icon
 id right_side
 id rv_book_list
 id rv_your_books
+id rv_your_orders
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1458,6 +1459,7 @@ layout activity_check_session
 layout activity_create_book
 layout activity_login
 layout activity_main
+layout activity_orders
 layout activity_personal_listing
 layout activity_register
 layout app_bar_main

@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.iser.project313.ui.orders.OrdersActivity" />
         <activity android:name="com.iser.project313.ui.orders.PersonalListingActivity" />
         <activity android:name="com.iser.project313.ui.home.CreateBook" />
         <activity android:name="com.iser.project313.ui.home.BookDetailActivity" />

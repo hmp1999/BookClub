@@ -18,6 +18,7 @@ class BookDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_detail)
+        initViews()
         initData()
         initToolbar()
     }
@@ -69,5 +70,32 @@ class BookDetailActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun initViews() {
+        btn_add_to_bag?.setOnClickListener {
+            //    addItemToBag()
+        }
+    }
+
+    private fun itemExist() {
+        FirebaseDatabase.getInstance().getReference("/orders/$bookId")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+
+                }
+
+            })
+    }
+
+    private fun addItemToBag() {
+        val ordersRef = FirebaseDatabase.getInstance().getReference("/orders")
+        val newOrder = ordersRef.push()
+        val key = newOrder.key
+
     }
 }
