@@ -2,6 +2,7 @@ package com.iser.project313.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
@@ -128,7 +129,15 @@ class BookListingActivity : AppCompatActivity() {
             android.R.id.home -> {
                 drawer_layout.openDrawer(GravityCompat.START)
             }
+            R.id.item_cart ->{
+
+            }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.action_menu, menu)
+        return true
     }
 }

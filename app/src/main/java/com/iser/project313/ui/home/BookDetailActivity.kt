@@ -1,25 +1,37 @@
 package com.iser.project313.ui.home
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.iser.project313.R
+import com.iser.project313.ui.BaseActivity
+import com.iser.project313.ui.CartDetail
+import com.iser.project313.ui.cart.CartActivity
 import kotlinx.android.synthetic.main.activity_book_detail.*
 
-class BookDetailActivity : AppCompatActivity() {
+class BookDetailActivity : BaseActivity() {
     private var bookDetail: BookInfo? = null
     private lateinit var bookId: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_detail)
+        showProgressDialog()
+        initViews()
         initData()
         initToolbar()
+        itemExist()
+        itemExistToWishList()
     }
 
     private fun initToolbar() {
@@ -67,7 +79,154 @@ class BookDetailActivity : AppCompatActivity() {
             android.R.id.home -> {
                 onBackPressed()
             }
+            R.id.item_cart -> {
+                openCart()
+            }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun initViews(){
+        btn_add_to_bag?.setOnClickListener {
+            addItemToBag()
+        }
+        btn_add_to_wishList?.setOnClickListener {
+            addToWishList()
+        }
+    }
+
+    private fun addToWishList() {
+        showProgressDialog()
+        val cartRef = FirebaseDatabase.getInstance().getReference("/wishlist")
+        val newBag = cartRef.push()
+        val key = newBag.key
+        val cart = CartDetail(key!!)
+        cart.productId = bookId
+        cart.productInfo = bookDetail!!
+        if (FirebaseAuth.getInstance().currentUser!=null)
+            cart.createdBy = FirebaseAuth.getInstance().currentUser?.email
+        newBag.setValue(cart){ databaseError, _ ->
+            if (databaseError == null) {
+                Snackbar.make(
+                    btn_add_to_bag,
+                    "Item added to wishlist",
+                    Snackbar.LENGTH_LONG
+                ).show()
+                hideWishlistButton(true)
+            }
+            else{
+                Snackbar.make(btn_add_to_bag,"Failed to add to wishlist",Snackbar.LENGTH_LONG).show()
+                hideWishlistButton(false)
+            }
+            hideProgressDialog()
+        }
+    }
+
+    private fun itemExist(){
+        var data = ArrayList<CartDetail>()
+        var itemExist : Boolean = false
+        var userEmail = FirebaseAuth.getInstance().currentUser?.email
+        FirebaseDatabase.getInstance().getReference("/bag").addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                Snackbar.make(
+                    btn_add_to_bag,
+                    "Something went wrong",
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+
+            override fun onDataChange(dataSet: DataSnapshot) {
+                dataSet.children.mapNotNullTo(data){
+                    it.getValue<CartDetail>(CartDetail::class.java)
+                }
+                data.forEach {
+                    if (it.createdBy!=null && it.createdBy.equals(userEmail) && it.productInfo.bookId.equals(bookId)){
+                        itemExist = true
+                    }
+                }
+                hideCartButton(itemExist)
+                hideProgressDialog()
+            }
+        })
+    }
+
+    private fun hideCartButton(hide: Boolean) {
+        if (hide){
+            btn_add_to_bag?.visibility = View.GONE
+            btn_order_now?.visibility = View.VISIBLE
+        }else {
+            btn_add_to_bag?.visibility = View.VISIBLE
+            btn_order_now?.visibility = View.GONE
+        }
+    }
+
+    private fun hideWishlistButton(hide: Boolean) {
+        if (hide){
+            btn_add_to_wishList?.visibility = View.GONE
+            btn_order_now?.visibility = View.VISIBLE
+        }else {
+            btn_add_to_bag?.visibility = View.VISIBLE
+            btn_order_now?.visibility = View.GONE
+        }
+    }
+
+    private fun addItemToBag(){
+        showProgressDialog()
+        val cartRef = FirebaseDatabase.getInstance().getReference("/bag")
+        val newBag = cartRef.push()
+        val key = newBag.key
+        val cart = CartDetail(key!!)
+        cart.productId = bookId
+        cart.productInfo = bookDetail!!
+        if (FirebaseAuth.getInstance().currentUser!=null)
+            cart.createdBy = FirebaseAuth.getInstance().currentUser?.email
+        newBag.setValue(cart){ databaseError, _ ->
+            if (databaseError == null) {
+                Snackbar.make(
+                    btn_add_to_bag,
+                    "Item added to cart successfully",
+                    Snackbar.LENGTH_LONG
+                ).show()
+                hideCartButton(true)
+            }
+            else {
+                Snackbar.make(btn_add_to_bag,"Failed to add to cart",Snackbar.LENGTH_LONG).show()
+                hideCartButton(false)
+            }
+
+            hideProgressDialog()
+        }
+    }
+
+    private fun itemExistToWishList(){
+        var data = ArrayList<CartDetail>()
+        var itemExist : Boolean = false
+        var userEmail = FirebaseAuth.getInstance().currentUser?.email
+        FirebaseDatabase.getInstance().getReference("/wishlist").addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                Snackbar.make(
+                    btn_add_to_bag,
+                    "Something went wrong",
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+
+            override fun onDataChange(dataSet: DataSnapshot) {
+                dataSet.children.mapNotNullTo(data){
+                    it.getValue<CartDetail>(CartDetail::class.java)
+                }
+                data.forEach {
+                    if (it.createdBy!=null && it.createdBy.equals(userEmail) && it.productInfo.bookId.equals(bookId)){
+                        itemExist = true
+                    }
+                }
+                hideWishlistButton(itemExist)
+                hideProgressDialog()
+            }
+        })
+    }
+
+    private fun openCart(){
+        startActivity(Intent(this,CartActivity::class.java))
     }
 }

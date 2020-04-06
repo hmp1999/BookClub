@@ -52,4 +52,6 @@
     <string name="sign_out">Sign out</string>
     <string name="menu_text">⋮</string>
     <string name="delete">Delete</string>
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="order_now">Order Now</string>
 </resources>

@@ -646,6 +646,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="default_web_client_id" translatable="false">57678078125-102ohenhq6k1hvq590kck7bl0irir4r9.apps.googleusercontent.com</string>
+    <string name="delete">Delete</string>
     <string name="email">Email</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
@@ -668,6 +669,7 @@
     <string name="menu_send">Send</string>
     <string name="menu_share">Share</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_text">⋮</string>
     <string name="menu_tools">Tools</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>

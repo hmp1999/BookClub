@@ -10,7 +10,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.orders.OrdersActivity"></activity>
+        <activity android:name=".ui.cart.CartActivity"></activity>
+        <activity android:name=".ui.BaseActivity" />
+        <activity android:name=".ui.orders.OrdersActivity" />
         <activity android:name=".ui.orders.PersonalListingActivity" />
         <activity android:name=".ui.home.CreateBook" />
         <activity android:name=".ui.home.BookDetailActivity" />

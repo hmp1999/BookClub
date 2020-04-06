@@ -13,4 +13,5 @@ data class OrderDetails(var orderId: String) {
     var extraDiscount: Int = 0
     var shippingCharge: Int = 0
     var totalAmount: Int = 0
+    var quantity : Int = 0
 }
