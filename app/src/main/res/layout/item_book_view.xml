@@ -10,12 +10,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp">
+        >
 
         <ImageView
             android:id="@+id/img_bookIcon"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="20dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -25,8 +26,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:maxLines="2"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textSize="32sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@id/tv_author"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/img_bookIcon"
@@ -49,14 +51,13 @@
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="0dp"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="26sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tv_menu"
             app:layout_constraintTop_toBottomOf="@+id/tv_author" />
 
@@ -70,11 +71,42 @@
             android:foreground="?attr/selectableItemBackground"
             android:padding="10dp"
             android:text="@string/menu_text"
+            android:layout_marginEnd="30dp"
             android:textColor="@android:color/black"
             android:textSize="36sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/divider"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_author" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_author"
+            android:layout_marginRight="30dp" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@id/tv_price"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btn_delete_from_cart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            android:background="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,6 +27,56 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/book_listing_main_content"/>
+        layout="@layout/book_listing_main_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbar_layout" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="#f4f5f7">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/tv_total_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="22sp"
+                android:layout_margin="20dp"
+                android:layout_marginStart="50dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_marginLeft="50dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="@string/place_order"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:background="@color/colorAccent"
+                android:padding="10dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:layout_margin="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,7 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun hideProgressDialog(){
-       if (progressDialog.isShowing)
+       if (progressDialog!=null &&  progressDialog.isShowing)
            progressDialog.hide()
     }
 

@@ -1241,6 +1241,7 @@ id bottom
 id btn_add_to_bag
 id btn_add_to_wishList
 id btn_create
+id btn_delete_from_cart
 id btn_forgot_password
 id btn_login
 id btn_order_now
@@ -1276,6 +1277,7 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id divider
 id drawer_layout
 id edit_query
 id edt_author
@@ -1474,10 +1476,17 @@ id transition_scene_layoutid_cache
 id transition_transform
 id tv_author
 id tv_choose_image
+id tv_delivery_charges
+id tv_label_price
+id tv_label_total_amount
+id tv_lable_delivery
 id tv_long_desc
 id tv_menu
 id tv_price
+id tv_price_tag
 id tv_title
+id tv_total_amount
+id tv_total_price
 id tv_user_email
 id tv_username
 id unchecked
@@ -1485,6 +1494,8 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id view_divider
+id view_divider2
 id view_offset_helper
 id visible
 id wide
@@ -1582,6 +1593,7 @@ layout fragment_send
 layout fragment_share
 layout fragment_slideshow
 layout fragment_tools
+layout item_bill_info
 layout item_book_view
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
@@ -1679,8 +1691,10 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string currency_price
 string default_web_client_id
 string delete
+string delivery_fee
 string email
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
@@ -1722,6 +1736,9 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string place_order
+string price
+string price_details
 string project_id
 string remove_user
 string search_menu_title
@@ -1732,6 +1749,7 @@ string status_bar_notification_info_overflow
 string title_activity_login
 string title_activity_profile
 string title_activity_reset_password
+string total_amount
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

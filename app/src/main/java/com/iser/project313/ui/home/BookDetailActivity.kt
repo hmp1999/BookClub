@@ -2,12 +2,14 @@ package com.iser.project313.ui.home
 
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Base64
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -30,8 +32,10 @@ class BookDetailActivity : BaseActivity() {
         initViews()
         initData()
         initToolbar()
+        hideProgressDialog()
         itemExist()
         itemExistToWishList()
+
     }
 
     private fun initToolbar() {
@@ -79,9 +83,7 @@ class BookDetailActivity : BaseActivity() {
             android.R.id.home -> {
                 onBackPressed()
             }
-            R.id.item_cart -> {
-                openCart()
-            }
+
         }
         return super.onOptionsItemSelected(item)
     }
@@ -123,6 +125,7 @@ class BookDetailActivity : BaseActivity() {
     }
 
     private fun itemExist(){
+        showProgressDialog()
         var data = ArrayList<CartDetail>()
         var itemExist : Boolean = false
         var userEmail = FirebaseAuth.getInstance().currentUser?.email
@@ -164,9 +167,13 @@ class BookDetailActivity : BaseActivity() {
         if (hide){
             btn_add_to_wishList?.visibility = View.GONE
             btn_order_now?.visibility = View.VISIBLE
+            btn_add_to_bag?.setBackgroundColor(Color.WHITE)
+            btn_add_to_bag?.setTextColor(ResourcesCompat.getColor(resources, R.color.colorAccent, null))
         }else {
-            btn_add_to_bag?.visibility = View.VISIBLE
+            btn_add_to_wishList?.visibility = View.VISIBLE
             btn_order_now?.visibility = View.GONE
+            btn_add_to_bag?.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.colorAccent, null))
+            btn_add_to_bag?.setTextColor(Color.WHITE)
         }
     }
 
@@ -226,7 +233,5 @@ class BookDetailActivity : BaseActivity() {
         })
     }
 
-    private fun openCart(){
-        startActivity(Intent(this,CartActivity::class.java))
-    }
+
 }

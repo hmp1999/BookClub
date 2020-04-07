@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.iser.project313.R
+import com.iser.project313.ui.cart.CartActivity
 import com.iser.project313.ui.orders.PersonalListingActivity
 import com.iser.project313.ui.user_info.CheckSessionActivity
 import kotlinx.android.synthetic.main.activity_book_listing.*
@@ -130,7 +131,7 @@ class BookListingActivity : AppCompatActivity() {
                 drawer_layout.openDrawer(GravityCompat.START)
             }
             R.id.item_cart ->{
-
+                openCart()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -139,5 +140,9 @@ class BookListingActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.action_menu, menu)
         return true
+    }
+
+    private fun openCart(){
+        startActivity(Intent(this, CartActivity::class.java))
     }
 }

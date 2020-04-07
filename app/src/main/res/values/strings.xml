@@ -54,4 +54,10 @@
     <string name="delete">Delete</string>
     <string name="shopping_cart">Shopping Cart</string>
     <string name="order_now">Order Now</string>
+    <string name="price_details">Price Details</string>
+    <string name="price">Price (#quantity items)</string>
+    <string name="delivery_fee">Delivery Fee</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="currency_price">#currency #price</string>
+    <string name="place_order">Place Order</string>
 </resources>
