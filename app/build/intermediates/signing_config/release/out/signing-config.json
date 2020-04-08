@@ -1,1 +1,1 @@
-{"mName":"externalOverride","mStoreFile":"C:\\Users\\Kosht\\Documents\\BookZone.jks","mStorePassword":"Admin@123","mKeyAlias":"key1","mKeyPassword":"Admin@123","mStoreType":"jks","mV1SigningEnabled":true,"mV2SigningEnabled":true}
+{"mName":"externalOverride","mStoreFile":"C:\\Users\\Kosht\\Documents\\BookZone\\BookZone.jks","mStorePassword":"Admin@123","mKeyAlias":"bookzone","mKeyPassword":"Admin@123","mStoreType":"jks","mV1SigningEnabled":true,"mV2SigningEnabled":true}

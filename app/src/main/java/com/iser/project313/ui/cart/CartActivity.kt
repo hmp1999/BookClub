@@ -1,6 +1,8 @@
 package com.iser.project313.ui.cart
 
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
 import android.widget.AdapterView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -73,7 +75,15 @@ class CartActivity : BaseActivity() {
                 billInfo.totalAmont = totalAmount.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
                 data.add(billInfo)
                 setPriceLabel(billInfo)
-                adapter.addCartItems(data)
+
+                if (data.size > 1){
+                    adapter.addCartItems(data)
+                    img_no_data?.visibility = View.GONE
+                    layout_price_details?.visibility =  View.VISIBLE
+                }else{
+                    img_no_data?.visibility = View.VISIBLE
+                    layout_price_details?.visibility = View.GONE
+                }
                 hideProgressDialog()
             }
         })
@@ -93,7 +103,10 @@ class CartActivity : BaseActivity() {
         },showRemoveIcon = true)
         rv_book_list?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
         rv_book_list?.adapter = adapter
-
+        swipeToRefresh?.setOnRefreshListener {
+            getCartDetails()
+            swipeToRefresh?.isRefreshing= false
+        }
     }
 
     private fun deleteCartItem(position : Int ,item: CartDetail) {
@@ -107,5 +120,14 @@ class CartActivity : BaseActivity() {
                 hideProgressDialog()
                 getCartDetails()
             }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            android.R.id.home -> {
+                onBackPressed()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

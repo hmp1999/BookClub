@@ -1,6 +1,7 @@
 package com.iser.project313.ui.orders
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
@@ -108,5 +109,14 @@ class PersonalListingActivity : AppCompatActivity() {
                 Toast.makeText(this, "Book has been deleted successfully", Toast.LENGTH_LONG).show()
                 personalListingAdapter.removeItem(index)
             }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            android.R.id.home -> {
+                onBackPressed()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

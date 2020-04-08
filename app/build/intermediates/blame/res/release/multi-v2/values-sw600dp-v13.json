@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Kosht\\AndroidStudioProjects\\Project313\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "outputFile": "C:\\Users\\Kosht\\AndroidStudioProjects\\Freelancing\\Project313\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\151f9b9858f4adc17a5dedd6795a10aa\\material-1.0.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\155da8816bded5314aee8803525ee313\\appcompat-1.0.2\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\Kosht\\.gradle\\caches\\transforms-2\\files-2.1\\e57a2db61575af2d62f3273231d8f539\\appcompat-1.1.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

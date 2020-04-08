@@ -21,6 +21,7 @@ import com.iser.project313.R
 import com.iser.project313.ui.cart.CartActivity
 import com.iser.project313.ui.orders.PersonalListingActivity
 import com.iser.project313.ui.user_info.CheckSessionActivity
+import com.iser.project313.ui.wishlist.MyWishListActivity
 import kotlinx.android.synthetic.main.activity_book_listing.*
 import kotlinx.android.synthetic.main.book_listing_content.*
 import kotlinx.android.synthetic.main.book_listing_main_content.*
@@ -69,6 +70,10 @@ class BookListingActivity : AppCompatActivity() {
                     openYourListings()
                     true
                 }
+                R.id.nav_wishlist -> {
+                    openWishlist()
+                    true
+                }
                 else -> false
             }
         }
@@ -90,6 +95,9 @@ class BookListingActivity : AppCompatActivity() {
         startActivity(Intent(this, CreateBook::class.java))
     }
 
+    private fun openWishlist(){
+        startActivity(Intent(this, MyWishListActivity::class.java))
+    }
 
     private fun performSignOut(): Boolean {
         FirebaseAuth.getInstance().signOut()

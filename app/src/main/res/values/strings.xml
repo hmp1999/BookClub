@@ -60,4 +60,12 @@
     <string name="total_amount">Total Amount</string>
     <string name="currency_price">#currency #price</string>
     <string name="place_order">Place Order</string>
+    <string name="my_wishlist">My Wishlist</string>
+    <string name="clear_all">Clear All</string>
+    <string name="description">Description</string>
+    <string name="create_book">Create Book</string>
+    <string name="my_books">My Books</string>
+    <string name="my_orders">My orders</string>
+    <string name="account">Account</string>
+    <string name="settings">Settings</string>
 </resources>
