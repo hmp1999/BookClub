@@ -68,4 +68,9 @@
     <string name="my_orders">My orders</string>
     <string name="account">Account</string>
     <string name="settings">Settings</string>
+    <string name="type_your_address">Type your address</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="checkout">Checkout</string>
+    <string name="shipping_details">Shipping Details</string>
+    <string name="goto_cart">Goto Cart</string>
 </resources>

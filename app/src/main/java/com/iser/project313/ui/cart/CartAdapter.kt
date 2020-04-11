@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iser.project313.R
 import com.iser.project313.ui.CartDetail
+import com.iser.project313.ui.orders.OrderDetails
 
 
 class CartAdapter (
@@ -25,7 +26,8 @@ class CartAdapter (
     companion object {
         const val BOOKS = 0
         const val BILL = 1
-        const val DEFAULT = 2
+        const val ORDER = 2
+        const val DEFAULT = 3
     }
     init {
         dataSet.addAll(data)
@@ -41,6 +43,11 @@ class CartAdapter (
                val view2: View = LayoutInflater.from(parent.context)
                    .inflate(R.layout.item_bill_info, parent, false)
                return ItemViewHolder(view2, viewType,onItemClickListener, showMenu, showRemoveIcon)
+            }
+           ORDER -> {
+                val view3: View = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_order_list, parent, false)
+                return ItemViewHolder(view3, viewType,onItemClickListener, showMenu, showRemoveIcon)
             }
             else -> {
                 val defaultView: View = LayoutInflater.from(parent.context)
@@ -77,6 +84,15 @@ class CartAdapter (
                 else holder.tvDeliveryCharges?.text = currentBill.shippingCharge.toString()
                 holder.tvTotalAmount?.text = totalPrice
             }
+            ORDER -> {
+                val currentOrder = dataSet[position] as OrderDetails
+                holder.tvOrderTitle?.text = currentOrder.orderTitle
+                holder.tvOrderOn?.text = "Ordered on : "+currentOrder.orderedOn
+                val decodedString = Base64.decode(currentOrder.products[0].productInfo.albumCover, Base64.DEFAULT)
+                val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+                holder.orderBookIcon?.setImageBitmap(decodedByte)
+                holder.orderId?.text = "Order Id - " + currentOrder.orderId
+            }
         }
     }
 
@@ -84,6 +100,11 @@ class CartAdapter (
         this.dataSet.clear()
         this.dataSet.addAll(data)
         notifyDataSetChanged()
+    }
+
+    fun addItem(position: Int , item : Any){
+        this.dataSet.add(position, item)
+        notifyItemInserted(position)
     }
 
     fun getItems() : ArrayList<Any>{
@@ -104,6 +125,8 @@ class CartAdapter (
             return BOOKS
         if (dataSet[position] is BillInfo)
             return BILL
+        if (dataSet[position] is OrderDetails)
+            return ORDER
         return DEFAULT
     }
 
@@ -124,6 +147,10 @@ class CartAdapter (
         var tvTotalAmount : TextView? = item.findViewById(R.id.tv_total_amount)
         var removeIcon : ImageButton? =  item.findViewById(R.id.btn_delete_from_cart)
         var divider : View? = item.findViewById(R.id.divider)
+        var tvOrderTitle : TextView? = item.findViewById(R.id.tv_order_title)
+        var tvOrderOn : TextView? = item.findViewById(R.id.tv_order_on)
+        var orderBookIcon : ImageView? = item.findViewById(R.id.img_item)
+        var orderId : TextView? = item.findViewById(R.id.tv_order_id)
 
         init {
             when(itemViewType){

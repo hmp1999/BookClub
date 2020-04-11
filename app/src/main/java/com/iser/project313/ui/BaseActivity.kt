@@ -2,9 +2,9 @@ package com.iser.project313.ui
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.iser.project313.R
 
 open class BaseActivity : AppCompatActivity() {

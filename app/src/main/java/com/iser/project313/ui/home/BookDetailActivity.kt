@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.util.Base64
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -95,6 +93,13 @@ class BookDetailActivity : BaseActivity() {
         btn_add_to_wishList?.setOnClickListener {
             addToWishList()
         }
+        btn_order_now?.setOnClickListener {
+            gotoCart()
+        }
+    }
+
+    private fun gotoCart(){
+        startActivity(Intent(this, CartActivity::class.java))
     }
 
     private fun addToWishList() {

@@ -1130,6 +1130,7 @@ drawable hamlet
 drawable ic_cam
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_location
 drawable ic_menu_camera
 drawable ic_menu_gallery
 drawable ic_menu_manage
@@ -1139,6 +1140,7 @@ drawable ic_menu_slideshow
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_phone
 drawable ic_signout
 drawable lolita
 drawable lost_book
@@ -1241,16 +1243,19 @@ id book_rating
 id bottom
 id btn_add_to_bag
 id btn_add_to_wishList
+id btn_checkout
 id btn_clear_all_wishlist
 id btn_create
 id btn_delete_from_cart
 id btn_forgot_password
 id btn_login
 id btn_order_now
+id btn_place_order
 id btn_register
 id buttonPanel
 id button_already_account
 id cancel_action
+id card_address_container
 id card_image_container
 id center
 id center_horizontal
@@ -1283,10 +1288,12 @@ id disableHome
 id divider
 id drawer_layout
 id edit_query
+id edt_address
 id edt_author
 id edt_email
 id edt_long_description
 id edt_password
+id edt_phone
 id edt_price
 id edt_short_description
 id edt_title
@@ -1317,9 +1324,12 @@ id icon_only
 id ifRoom
 id image
 id imageView
+id imageView2
 id image_container
 id img_bookIcon
 id img_book_cover
+id img_item
+id img_location
 id img_no_data
 id include
 id info
@@ -1355,7 +1365,6 @@ id nav_home
 id nav_host_fragment
 id nav_orders
 id nav_send
-id nav_settings
 id nav_share
 id nav_signOut
 id nav_slideshow
@@ -1465,6 +1474,8 @@ id text_tools
 id textinput_counter
 id textinput_error
 id textinput_helper_text
+id til_address
+id til_phone
 id time
 id title
 id titleDividerNoCustom
@@ -1491,8 +1502,12 @@ id tv_label_total_amount
 id tv_lable_delivery
 id tv_long_desc
 id tv_menu
+id tv_order_id
+id tv_order_on
+id tv_order_title
 id tv_price
 id tv_price_tag
+id tv_shipping_details
 id tv_title
 id tv_total_amount
 id tv_total_price
@@ -1573,7 +1588,9 @@ layout activity_check_session
 layout activity_create_book
 layout activity_login
 layout activity_main
+layout activity_my_orders
 layout activity_my_wish_list
+layout activity_order_details
 layout activity_orders
 layout activity_personal_listing
 layout activity_register
@@ -1605,6 +1622,7 @@ layout fragment_slideshow
 layout fragment_tools
 layout item_bill_info
 layout item_book_view
+layout item_order_list
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header_main
@@ -1684,6 +1702,7 @@ string change_email
 string change_password
 string character_counter_content_description
 string character_counter_pattern
+string checkout
 string clear_all
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
@@ -1703,6 +1722,7 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string contact_number
 string create_book
 string currency_price
 string default_web_client_id
@@ -1720,6 +1740,7 @@ string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string goto_cart
 string hide_bottom_view_on_scroll_behavior
 string hint_email
 string hint_name
@@ -1761,6 +1782,7 @@ string remove_user
 string search_menu_title
 string send_password_reset_email
 string settings
+string shipping_details
 string shopping_cart
 string sign_out
 string status_bar_notification_info_overflow
@@ -1768,6 +1790,7 @@ string title_activity_login
 string title_activity_profile
 string title_activity_reset_password
 string total_amount
+string type_your_address
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

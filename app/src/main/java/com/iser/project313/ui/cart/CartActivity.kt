@@ -1,5 +1,6 @@
 package com.iser.project313.ui.cart
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -14,6 +15,8 @@ import com.google.firebase.database.ValueEventListener
 import com.iser.project313.R
 import com.iser.project313.ui.BaseActivity
 import com.iser.project313.ui.CartDetail
+import com.iser.project313.ui.OrderDetailsActivity
+import com.iser.project313.ui.orders.OrderDetails
 import kotlinx.android.synthetic.main.activity_book_detail.*
 import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.activity_cart.toolbar
@@ -107,6 +110,27 @@ class CartActivity : BaseActivity() {
             getCartDetails()
             swipeToRefresh?.isRefreshing= false
         }
+        btn_place_order?.setOnClickListener {
+            openFinalOrderPage()
+        }
+    }
+
+    private fun openFinalOrderPage() {
+        val orderDetails = OrderDetails("temp")
+        val products : ArrayList<Any> = ArrayList()
+        var priceDetails : BillInfo? = null
+        products.addAll(adapter.getItems())
+        if (products[products.size-1] is BillInfo)
+            priceDetails = products.removeAt(products.size-1) as BillInfo
+        orderDetails.products = products.mapTo(orderDetails.products){
+            it as CartDetail
+        }
+        if (priceDetails!=null)
+            orderDetails.billInfo = priceDetails
+        val intent  : Intent = Intent(this, OrderDetailsActivity::class.java)
+        intent.putExtra("ORDER", orderDetails)
+        startActivity(intent)
+        finish()
     }
 
     private fun deleteCartItem(position : Int ,item: CartDetail) {

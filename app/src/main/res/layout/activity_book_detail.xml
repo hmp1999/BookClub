@@ -214,7 +214,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_order_now"
-                android:text="@string/order_now"
+                android:text="@string/goto_cart"
                 android:visibility="gone"
                 android:background="@color/colorAccent"
                 app:layout_constraintTop_toTopOf="parent"

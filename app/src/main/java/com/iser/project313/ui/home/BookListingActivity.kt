@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.iser.project313.R
 import com.iser.project313.ui.cart.CartActivity
+import com.iser.project313.ui.orders.MyOrdersActivity
 import com.iser.project313.ui.orders.PersonalListingActivity
 import com.iser.project313.ui.user_info.CheckSessionActivity
 import com.iser.project313.ui.wishlist.MyWishListActivity
@@ -74,6 +75,10 @@ class BookListingActivity : AppCompatActivity() {
                     openWishlist()
                     true
                 }
+                R.id.nav_orders -> {
+                    openMyOrders()
+                    true
+                }
                 else -> false
             }
         }
@@ -97,6 +102,10 @@ class BookListingActivity : AppCompatActivity() {
 
     private fun openWishlist(){
         startActivity(Intent(this, MyWishListActivity::class.java))
+    }
+
+    private fun openMyOrders(){
+        startActivity(Intent(this, MyOrdersActivity::class.java))
     }
 
     private fun performSignOut(): Boolean {

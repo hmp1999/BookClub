@@ -18,6 +18,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.iser.project313.ui.orders.MyOrdersActivity" />
+        <activity android:name="com.iser.project313.ui.OrderDetailsActivity" />
         <activity android:name="com.iser.project313.ui.wishlist.MyWishListActivity" />
         <activity android:name="com.iser.project313.ui.cart.CartActivity" />
         <activity android:name="com.iser.project313.ui.BaseActivity" />
